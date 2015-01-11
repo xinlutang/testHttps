@@ -34,6 +34,170 @@ var app = {
 	// function, we must explicitly call 'app.receivedEvent(...);'
 	onDeviceReady : function() {
 
+ 
+	cordovaHTTP.useBasicAuth("admin", "Demo@123", function() {
+			console.log('success1!');
+		}, function() {
+			console.log('error :(');
+		});
+		
+			alert("tp2");
+		cordovaHTTP.setHeader("Header", "Value", function() {
+			console.log('success2!');
+				alert("tp2-1");
+
+		}, function() {
+			console.log('error :(');
+				alert("tp2-2");
+
+		});
+		//	alert("tp3");
+		cordovaHTTP.enableSSLPinning(true, function() {
+			console.log('success3!');
+			alert('success3!');
+
+		}, function() {
+			console.log(' error:(');
+						alert('error!');
+
+		});
+		//alert("tp4");
+		cordovaHTTP.acceptAllCerts(true, function() {
+			console.log('success4!');
+			alert('success4!');
+		}, function() {
+			console.log('error :(');
+						alert('error :(');
+
+		});
+
+		alert("tp5");
+
+
+ 
+
+
+/*
+		//cordovaHTTP.post("https://www.google.com/", {
+		cordovaHTTP.post("http://www.pineconetassel.com/testjson.php", {
+			name : "xinlu",
+			email : "test@yahoo.com"
+		}, {
+			Authorization : "OAuth2: token"
+		}, function(response) {
+			// prints 200
+			console.log("tp7" + response.status);
+			alert(response.status);
+			try {
+				alert(response.data);
+				response.data = JSON.parse(response.data);
+				// prints test
+				console.log("tp8" + response.data.name);
+				alert(response.data.name + ':' + response.data.email);
+
+			} catch(e) {
+				console.error("JSON parsing error");
+				alert("JSON parsing error");
+
+			}
+		}, function(response) {
+			// prints 403
+			console.log("tp9" + response.status);
+			alert("tp9" + response.status);
+
+			//prints Permission denied
+			console.log("tp11" + response.error);
+			alert("tp11" + response.error);
+
+		});
+		//cordovaHTTP.post("https://www.google.com/", {
+		cordovaHTTP.post("http://www.pineconetassel.com/testdb.php", {
+			name : "xinlu1",
+			email : "test1@yahoo.com"
+		}, {
+			Authorization : "OAuth2: token"
+		}, function(response) {
+			// prints 200
+			console.log("tp7" + response.status);
+			alert(response.status);
+			try {
+				alert(response.data);
+				response.data = JSON.parse(response.data);
+				// prints test
+				console.log("tp8" + response.data.name);
+				alert(response.data.name + ':' + response.data.email);
+
+			} catch(e) {
+				console.error("JSON parsing error");
+				alert("JSON parsing error");
+
+			}
+		}, function(response) {
+			// prints 403
+			console.log("tp9" + response.status);
+			alert("tp9" + response.status);
+
+			//prints Permission denied
+			console.log("tp11" + response.error);
+			alert("tp11" + response.error);
+
+		});
+		
+		
+		*/
+
+		/*
+		 cordovaHTTP.get("https://google.com/", {
+		 id : 12,
+		 message : "test"
+		 }, {
+		 Authorization : "OAuth2: token"
+		 }, function(response) {
+		 console.log(response.status);
+		 alert(response.status);
+		 }, function(response) {
+		 console.error(response.error);
+		 alert(response.error);
+
+		 });
+		 */
+/*
+		cordovaHTTP.get("http://www.google.com/", {
+		 id : 12,
+		 message : "test"
+		 },  {
+			Authorization : "OAuth2: token"
+		}, function(response) {
+			// prints 200
+			console.log("tp7" + response.status);
+			alert(response.status);
+			try {
+				alert(response.data);
+				response.data = JSON.parse(response.data);
+				// prints test
+				console.log("tp8" + response.data.name);
+				alert(response.data.name + ':' + response.data.email);
+
+			} catch(e) {
+				console.error("JSON parsing error");
+				alert("JSON parsing error");
+
+			}
+		}, function(response) {
+			// prints 403
+			console.log("tp9" + response.status);
+			alert("tp9" + response.status);
+
+			//prints Permission denied
+			console.log("tp11" + response.error);
+			alert("tp11" + response.error);
+
+		});
+*/
+
+
+
+		alert("tp6");
 
 		app.receivedEvent('deviceready');
 

@@ -33,15 +33,6 @@ under the License.
 	</head>
 	<body>
 
-		<div data-role="page" class="jqm-demos" id="worker_menu_page" data-title="Siteler Worker Menu">
-
-			<div role="main" class="ui-content jqm-content jqm-fullwidth">
-
-				<a onclick="testhttps()"  >View Job Map</a>
-
-			</div><!-- /content -->
-
-		</div><!-- /worker_menu_page -->
 
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
@@ -54,49 +45,9 @@ under the License.
 	
 		<script type="text/javascript" charset="utf-8">
 			function testhttps() {
-				
+			alert("test");
 			
-				
-        cordovaHTTP.useBasicAuth("admin", "Demo@123", function() {
-			console.log('success1!');
-		}, function() {
-			console.log('error :(');
-		});
-		
-		//	alert("tp2");
-		cordovaHTTP.setHeader("Header", "Value", function() {
-			console.log('success2!');
-			//	alert("tp2-1");
-
-		}, function() {
-			console.log('error :(');
-			//	alert("tp2-2");
-
-		});
-		
-		
-		//	alert("tp3");
-		cordovaHTTP.enableSSLPinning(true, function() {
-			console.log('success3!');
-		//	alert('success3!');
-
-		}, function() {
-			console.log(' error:(');
-						alert('error!');
-
-		});
-		//alert("tp4");
-		cordovaHTTP.acceptAllCerts(true, function() {
-			console.log('success4!');
-		//	alert('success4!');
-		}, function() {
-			console.log('error :(');
-						alert('error :(');
-
-		});
-
-			
-		cordovaHTTP.post("https://www.pineconetassel.com/testjson.php", {
+			cordovaHTTP.post("http://www.pineconetassel.com/testjson.php", {
 			name : "xinlu1",
 			email : "test1@yahoo.com"
 		}, {
@@ -119,11 +70,11 @@ under the License.
 			}
 		}, function(response) {
 			// prints 403
-			console.log("tp9-" + response.status);
+			console.log("tp9" + response.status);
 			alert("tp9" + response.status);
 
 			//prints Permission denied
-			console.log("tp11 " + response.error);
+			console.log("tp11" + response.error);
 			alert("tp11" + response.error);
 
 		});
