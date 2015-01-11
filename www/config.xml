@@ -43,7 +43,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="com.synconset.cordovaHTTP" />
+    <gap:plugin name="com.synconset.cordovahttp" />
 
     
     
