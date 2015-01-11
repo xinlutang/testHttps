@@ -43,9 +43,8 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     
-    <gap:plugin name="com.synconset.cordovahttp" source="plugins.cordova.io" />
+     <gap:plugin name="com.synconset.cordovahttp" source="plugins.cordova.io" />
 
-    
     
     
     <icon src="icon.png" />

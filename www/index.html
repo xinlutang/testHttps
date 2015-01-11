@@ -33,6 +33,26 @@ under the License.
 	</head>
 	<body>
 
+		<div data-role="page" class="jqm-demos" id="worker_menu_page" data-title="Siteler Worker Menu">
+
+			<div role="main" class="ui-content jqm-content jqm-fullwidth">
+
+			
+				<div data-role="navbar" >
+					<ul data-role="listview" >
+						<li>
+							<a onclick="testhttps('http://www.pineconetassel.com/testjson.php')"  >test http</a>
+						</li>
+						<li>
+							<a  onclick="testhttps('https://www.pineconetassel.com/testjson.php')"   >test https</a>
+						</li>
+
+					</ul>
+				</div>
+
+			</div><!-- /content -->
+
+		</div><!-- /worker_menu_page -->
 
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
@@ -42,42 +62,77 @@ under the License.
 			app.initialize();
 		</script>
 
-	
 		<script type="text/javascript" charset="utf-8">
-			function testhttps() {
-			alert("test");
-			
-			cordovaHTTP.post("http://www.pineconetassel.com/testjson.php", {
-			name : "xinlu1",
-			email : "test1@yahoo.com"
-		}, {
-			Authorization : "OAuth2: token"
-		}, function(response) {
-			// prints 200
-			console.log("tp7" + response.status);
-			alert(response.status);
-			try {
-				alert(response.data);
-				response.data = JSON.parse(response.data);
-				// prints test
-				console.log("tp8" + response.data.name);
-				alert(response.data.name + ':' + response.data.email);
+			function testhttps(url) {
+				alert(url);
+				cordovaHTTP.useBasicAuth("admin", "Demo@123", function() {
+					console.log('success1!');
+				}, function() {
+					console.log('error :(');
+				});
 
-			} catch(e) {
-				console.error("JSON parsing error");
-				alert("JSON parsing error");
+				//	alert("tp2");
+				cordovaHTTP.setHeader("Header", "Value", function() {
+					console.log('success2!');
+					//	alert("tp2-1");
 
-			}
-		}, function(response) {
-			// prints 403
-			console.log("tp9" + response.status);
-			alert("tp9" + response.status);
+				}, function() {
+					console.log('error :(');
+					//	alert("tp2-2");
 
-			//prints Permission denied
-			console.log("tp11" + response.error);
-			alert("tp11" + response.error);
+				});
 
-		});
+				//	alert("tp3");
+				cordovaHTTP.enableSSLPinning(true, function() {
+					console.log('success3!');
+					//	alert('success3!');
+
+				}, function() {
+					console.log(' error:(');
+					alert('error!');
+
+				});
+				//alert("tp4");
+				cordovaHTTP.acceptAllCerts(true, function() {
+					console.log('success4!');
+					//	alert('success4!');
+				}, function() {
+					console.log('error :(');
+					alert('error :(');
+
+				});
+
+				cordovaHTTP.post(url, {
+					name : "xinlu1",
+					email : "test1@yahoo.com"
+				}, {
+					Authorization : "OAuth2: token"
+				}, function(response) {
+					// prints 200
+					console.log("tp7" + response.status);
+					alert(response.status);
+					try {
+						alert(response.data);
+						response.data = JSON.parse(response.data);
+						// prints test
+						console.log("tp8" + response.data.name);
+						alert(response.data.name + ':' + response.data.email);
+
+					} catch(e) {
+						console.error("JSON parsing error");
+						alert("JSON parsing error");
+
+					}
+				}, function(response) {
+					// prints 403
+					console.log("tp9-" + response.status);
+					alert("tp9" + response.status);
+
+					//prints Permission denied
+					console.log("tp11 " + response.error);
+					alert("tp11" + response.error);
+
+				});
 			}
 		</script>
 	</body>
