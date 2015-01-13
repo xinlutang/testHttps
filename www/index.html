@@ -41,10 +41,10 @@ under the License.
 				<div data-role="navbar" >
 					<ul data-role="listview" >
 						<li>
-							<a onclick="testhttps('http://www.pineconetassel.com/testjson.php')"  >test http</a>
+							<a onclick="testHTTP('http://www.pineconetassel.com/testjson.php')"  >test http</a>
 						</li>
 						<li>
-							<a  onclick="testhttps('https://www.pineconetassel.com/testjson.php')"   >test https</a>
+							<a  onclick="testHTTP('https://www.pineconetassel.com/testjson.php')"   >test HTTP</a>
 						</li>
 
 					</ul>
@@ -63,7 +63,8 @@ under the License.
 		</script>
 
 		<script type="text/javascript" charset="utf-8">
-			function testhttps(url) {
+		
+			function testHTTP(url) {
 				alert(url);
 				cordovaHTTP.useBasicAuth("admin", "Demo@123", function() {
 					console.log('success1!');
@@ -83,15 +84,15 @@ under the License.
 				});
 
 				//	alert("tp3");
-				cordovaHTTP.enableSSLPinning(true, function() {
+				/*cordovaHTTP.enableSSLPinning(true, function() {
 					console.log('success3!');
 					//	alert('success3!');
 
 				}, function() {
 					console.log(' error:(');
 					alert('error!');
-
-				});
+				
+				});*/
 				//alert("tp4");
 				cordovaHTTP.acceptAllCerts(true, function() {
 					console.log('success4!');
