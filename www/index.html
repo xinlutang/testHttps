@@ -41,10 +41,10 @@ under the License.
 				<div data-role="navbar" >
 					<ul data-role="listview" >
 						<li>
-							<a onclick="testHTTP('http://www.pineconetassel.com/testjson.php')"  >test http</a>
+							<a onclick="testhttps('http://www.pineconetassel.com/testjson.php')"  >test http</a>
 						</li>
 						<li>
-							<a  onclick="testHTTP('https://www.pineconetassel.com/testjson.php')"   >test HTTP</a>
+							<a  onclick="testhttps('https://www.pineconetassel.com/testjson.php')"   >test https</a>
 						</li>
 
 					</ul>
@@ -56,15 +56,13 @@ under the License.
 
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="js/cordovaHTTP.js"></script>
 
 		<script type="text/javascript">
 			app.initialize();
 		</script>
 
 		<script type="text/javascript" charset="utf-8">
-		
-			function testHTTP(url) {
+			function testhttps(url) {
 				alert(url);
 				cordovaHTTP.useBasicAuth("admin", "Demo@123", function() {
 					console.log('success1!');
@@ -84,15 +82,15 @@ under the License.
 				});
 
 				//	alert("tp3");
-				/*cordovaHTTP.enableSSLPinning(true, function() {
-					console.log('success3!');
-					//	alert('success3!');
+				cordovaHTTP.enableSSLPinning(true, function() {
+					console.log('SSLPinning success!');
+					alert('SSLPinning success!');
 
 				}, function() {
 					console.log(' error:(');
 					alert('error!');
-				
-				});*/
+
+				});
 				//alert("tp4");
 				cordovaHTTP.acceptAllCerts(true, function() {
 					console.log('success4!');
